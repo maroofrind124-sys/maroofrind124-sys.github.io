@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maroof Ali — AI Engineer in the Making</title>
+<meta name="description" content="Maroof Ali — Computer Science student and ML Intern at EZITECH, building end-to-end machine learning and deep learning projects from data to deployment.">
+<meta property="og:title" content="Maroof Ali — AI Engineer in the Making">
+<meta property="og:description" content="CS student moving from web development into data science and AI engineering. ML Intern at EZITECH, building end-to-end ML/DL projects and deploying them live.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%230a1020%22/><text x=%2250%22 y=%2266%22 font-size=%2255%22 text-anchor=%22middle%22 fill=%22%232dd4bf%22 font-family=%22monospace%22>M</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0a1020;
+    --bg-alt: #0e1730;
+    --panel: #101a35;
+    --line: rgba(232,237,242,0.08);
+    --text: #e8edf2;
+    --text-dim: #93a0bd;
+    --teal: #2dd4bf;
+    --amber: #f5a623;
+    --violet: #8b6cf2;
+    --spectrum: linear-gradient(90deg, #2dd4bf 0%, #63c7e8 22%, #8b6cf2 48%, #d16be0 68%, #f5a623 100%);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--teal);color:#0a1020;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px;}
+  h1,h2,h3{font-family:'Sora',sans-serif;letter-spacing:-0.01em;}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--teal);
+    display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:'';width:22px;height:1px;background:var(--teal);}
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(10,16,32,0.75);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex;justify-content:space-between;align-items:center;height:64px;}
+  .logo{font-family:'JetBrains Mono',monospace;font-weight:500;font-size:15px;color:var(--text);}
+  .logo span{color:var(--teal);}
+  .navlinks{display:flex;gap:32px;font-size:14px;color:var(--text-dim);}
+  .navlinks a:hover{color:var(--teal);}
+  @media(max-width:700px){.navlinks{display:none;}}
+
+  /* HERO */
+  header.hero{
+    min-height:100vh;
+    display:flex;flex-direction:column;justify-content:center;
+    position:relative;
+    padding-top:64px;
+    background:
+      radial-gradient(ellipse 900px 500px at 20% 0%, rgba(139,108,242,0.15), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 90% 30%, rgba(45,212,191,0.12), transparent 60%);
+  }
+  .scan{
+    position:absolute;left:0;right:0;top:0;height:3px;
+    background:var(--spectrum);
+    background-size:200% 100%;
+    animation:scan 6s linear infinite;
+  }
+  @keyframes scan{0%{background-position:0% 0;}100%{background-position:200% 0;}}
+  .hero-inner{padding-top:60px;padding-bottom:80px;}
+  .hero-top{display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+  .avatar{
+    width:104px;height:104px;border-radius:50%;
+    object-fit:cover;flex-shrink:0;
+    border:3px solid transparent;
+    background:var(--spectrum) border-box;
+    -webkit-mask:linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor;mask-composite:exclude;
+    padding:3px;
+  }
+  .avatar-wrap{
+    width:110px;height:110px;border-radius:50%;
+    padding:3px;background:var(--spectrum);flex-shrink:0;
+  }
+  .avatar-wrap img{
+    width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;
+    border:3px solid var(--bg);
+  }
+  .hero h1{
+    font-size:clamp(40px,7vw,76px);
+    font-weight:700;
+    line-height:1.05;
+    margin-top:24px;
+  }
+  .hero h1 .grad{
+    background:var(--spectrum);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero p.lede{
+    max-width:560px;margin-top:24px;font-size:18px;color:var(--text-dim);
+  }
+  .hero-actions{display:flex;gap:16px;margin-top:36px;flex-wrap:wrap;}
+  .btn{
+    font-family:'JetBrains Mono',monospace;font-size:13px;
+    padding:13px 24px;border-radius:6px;
+    display:inline-flex;align-items:center;gap:8px;
+    transition:transform .15s ease, border-color .15s ease;
+  }
+  .btn-primary{background:var(--teal);color:#0a1020;font-weight:500;}
+  .btn-primary:hover{transform:translateY(-2px);}
+  .btn-ghost{border:1px solid var(--line);color:var(--text);}
+  .btn-ghost:hover{border-color:var(--teal);color:var(--teal);transform:translateY(-2px);}
+
+  .metrics{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    gap:1px;background:var(--line);
+    border:1px solid var(--line);border-radius:10px;overflow:hidden;
+    margin-top:64px;
+  }
+  .metric{background:var(--bg-alt);padding:22px 18px;}
+  .metric .n{font-family:'Sora',sans-serif;font-size:26px;font-weight:700;color:var(--teal);}
+  .metric .l{font-size:12px;color:var(--text-dim);margin-top:4px;}
+  @media(max-width:700px){.metrics{grid-template-columns:repeat(2,1fr);}}
+
+  /* SECTION SHELL */
+  section{padding:110px 0;}
+  .section-head{margin-bottom:52px;}
+  .section-head h2{font-size:clamp(28px,4vw,38px);margin-top:14px;}
+  .section-head p{color:var(--text-dim);max-width:600px;margin-top:12px;}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;align-items:start;}
+  @media(max-width:800px){.about-grid{grid-template-columns:1fr;}}
+  .about-grid p{color:var(--text-dim);margin-bottom:16px;font-size:16px;}
+  .about-grid strong{color:var(--text);font-weight:500;}
+  .stack-card{
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:28px;
+  }
+  .stack-card h4{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.1em;color:var(--text-dim);text-transform:uppercase;margin-bottom:16px;}
+  .pillrow{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;}
+  .pillrow:last-child{margin-bottom:0;}
+  .pill{
+    font-family:'JetBrains Mono',monospace;font-size:12px;
+    padding:6px 12px;border-radius:100px;border:1px solid var(--line);color:var(--text-dim);
+  }
+
+  /* EXPERIENCE */
+  .exp-card{
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;
+    padding:32px;display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;
+  }
+  .exp-dot{
+    width:10px;height:10px;border-radius:50%;background:var(--teal);
+    margin-top:8px;flex-shrink:0;box-shadow:0 0 0 4px rgba(45,212,191,0.15);
+  }
+  .exp-body{flex:1;min-width:240px;}
+  .exp-top{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;margin-bottom:6px;}
+  .exp-top h3{font-size:20px;}
+  .exp-period{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-dim);}
+  .exp-role{color:var(--teal);font-size:14px;font-weight:500;margin-bottom:12px;}
+  .exp-body p{color:var(--text-dim);font-size:15px;margin-bottom:0;}
+
+  /* FYP SPOTLIGHT */
+  .fyp{
+    background:var(--panel);border:1px solid var(--line);border-radius:16px;
+    padding:48px;position:relative;overflow:hidden;
+  }
+  .fyp::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--spectrum);
+  }
+  .fyp-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;margin-bottom:20px;}
+  .fyp-top h3{font-size:26px;}
+  .badge{
+    font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--amber);
+    border:1px solid rgba(245,166,35,0.35);background:rgba(245,166,35,0.08);
+    padding:5px 12px;border-radius:100px;white-space:nowrap;
+  }
+  .fyp p{color:var(--text-dim);max-width:680px;margin-bottom:24px;}
+  .fyp-specbar{
+    height:34px;border-radius:6px;background:var(--spectrum);opacity:0.85;
+    display:flex;align-items:center;
+    margin-bottom:28px;position:relative;
+  }
+  .fyp-specbar span{
+    font-family:'JetBrains Mono',monospace;font-size:10px;color:#0a1020;font-weight:500;
+    position:absolute;top:-20px;
+  }
+  .fyp-specbar span:nth-child(1){left:0;}
+  .fyp-specbar span:nth-child(2){left:33%;}
+  .fyp-specbar span:nth-child(3){left:66%;}
+  .fyp-specbar span:nth-child(4){right:0;}
+  .fyp-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  @media(max-width:700px){.fyp{padding:28px;}.fyp-meta{grid-template-columns:repeat(2,1fr);}}
+  .fyp-meta div h5{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;}
+  .fyp-meta div p{color:var(--text);font-size:14px;margin:0;}
+
+  /* PROJECTS */
+  .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  @media(max-width:900px){.proj-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:640px){.proj-grid{grid-template-columns:1fr;}}
+  .proj{
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:26px;
+    display:flex;flex-direction:column;height:100%;
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .proj:hover{border-color:var(--teal);transform:translateY(-4px);}
+  .proj .tag{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--violet);text-transform:uppercase;letter-spacing:0.06em;}
+  .proj h4{font-size:18px;margin:10px 0 10px;}
+  .proj p{color:var(--text-dim);font-size:14px;flex-grow:1;}
+  .proj .techrow{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;}
+  .proj .techrow span{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text-dim);border:1px solid var(--line);padding:3px 9px;border-radius:100px;}
+
+  /* CONTACT */
+  .contact-panel{
+    background:var(--panel);border:1px solid var(--line);border-radius:16px;
+    padding:56px;text-align:center;
+  }
+  .contact-panel h2{font-size:clamp(26px,4vw,36px);margin-bottom:14px;}
+  .contact-panel p{color:var(--text-dim);max-width:480px;margin:0 auto 32px;}
+  .contact-links{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+
+  footer{padding:32px 0 48px;text-align:center;color:var(--text-dim);font-size:13px;font-family:'JetBrains Mono',monospace;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">Maroof<span>.Ai</span></div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#fyp">FYP</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="btn btn-ghost" style="padding:9px 18px;">Get in touch</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="scan"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-top">
+      <div class="avatar-wrap"><img src="assets/avatar.jpg" alt="Maroof Ali"></div>
+      <div class="eyebrow">CS student · Islamabad region, PK</div>
+    </div>
+    <h1>Turning raw data<br>into <span class="grad">working models.</span></h1>
+    <p class="lede">I'm Maroof Ali — a Computer Science student moving from web development into data science and AI engineering. I build ML pipelines end to end: from messy datasets to deployed, explainable models.</p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn btn-primary">View projects →</a>
+      <a href="https://github.com/maroofrind124-sys" target="_blank" class="btn btn-ghost">GitHub</a>
+      <a href="mailto:maroofrind124@gmail.com" class="btn btn-ghost">Email me</a>
+    </div>
+    <div class="metrics">
+      <div class="metric"><div class="n">10</div><div class="l">ML &amp; DL projects shipped</div></div>
+      <div class="metric"><div class="n">3</div><div class="l">Deployed / live apps</div></div>
+      <div class="metric"><div class="n">1</div><div class="l">ML internship — EZITECH</div></div>
+      <div class="metric"><div class="n">1</div><div class="l">Final year project</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">About</div>
+      <h2>From Laravel to Linear Algebra</h2>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p>I started in <strong>web development with PHP and Laravel</strong>, shipping backend systems and APIs. Over the past year I've been deliberately rebuilding that foundation toward <strong>data science, machine learning, and AI engineering</strong> — treating it as seriously as any production system.</p>
+        <p>That shows up in how I work: I don't stop at a model that runs, I check for <strong>data leakage, multicollinearity, and scaling bugs</strong> before calling anything done. My final year project applies ML to a real diagnostic problem — detecting dengue fever from Raman spectral data — and is built as a full-stack platform, not just a notebook.</p>
+        <p>Right now my target is <strong>AI Engineer</strong>, with data analysis as the working foundation underneath it.</p>
+      </div>
+      <div class="stack-card">
+        <h4>Core stack</h4>
+        <div class="pillrow">
+          <span class="pill">Python</span><span class="pill">Pandas</span><span class="pill">NumPy</span><span class="pill">Scikit-learn</span>
+        </div>
+        <h4>Visualization</h4>
+        <div class="pillrow">
+          <span class="pill">Matplotlib</span><span class="pill">Seaborn</span><span class="pill">Streamlit</span>
+        </div>
+        <h4>Systems &amp; backend</h4>
+        <div class="pillrow">
+          <span class="pill">FastAPI</span><span class="pill">PostgreSQL</span><span class="pill">Next.js</span><span class="pill">Laravel</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Experience</div>
+      <h2>Where the learning meets real work</h2>
+    </div>
+    <div class="exp-card">
+      <div class="exp-dot"></div>
+      <div class="exp-body">
+        <div class="exp-top">
+          <h3>EZITECH</h3>
+          <span class="exp-period">Current</span>
+        </div>
+        <div class="exp-role">Machine Learning Intern</div>
+        <p>Working hands-on with real ML pipelines — from data preprocessing to model training and evaluation — applying the same rigor (leakage checks, proper validation, scaling) I bring to my personal projects, now in a production-adjacent setting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="fyp">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Final Year Project</div>
+      <h2>Diagnosing dengue from a beam of light</h2>
+    </div>
+    <div class="fyp">
+      <div class="fyp-top">
+        <h3>Dengue Fever Detection System</h3>
+        <div class="badge">FYP-1 DEFENDED</div>
+      </div>
+      <p>A web-based diagnostic platform that classifies dengue infection from Raman spectral data, using PCA for dimensionality reduction and LDA for classification — built as a complete product with a real backend and frontend, not just a modeling notebook.</p>
+      <div class="fyp-specbar">
+        <span>Raw spectrum</span><span>PCA</span><span>LDA</span><span>Diagnosis</span>
+      </div>
+      <div class="fyp-meta">
+        <div><h5>Input</h5><p>Raman spectral data</p></div>
+        <div><h5>Pipeline</h5><p>PCA → LDA classification</p></div>
+        <div><h5>Backend</h5><p>FastAPI + PostgreSQL</p></div>
+        <div><h5>Frontend</h5><p>Next.js</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Projects</div>
+      <h2>Applied ML, one dataset at a time</h2>
+      <p>Each project moved me further from "runs without error" to "runs correctly" — catching leakage, scaling, and multicollinearity issues along the way.</p>
+    </div>
+    <div class="proj-grid">
+      <div class="proj">
+        <span class="tag">Unsupervised · Complete</span>
+        <h4>Customer Segmentation</h4>
+        <p>K-Means clustering (K=4) on RFM features from the UCI Online Retail dataset. Includes outlier handling via IQR/Z-score, PCA, cluster profiling, and an interactive Streamlit dashboard for exploring the segments.</p>
+        <div class="techrow"><span>K-Means</span><span>RFM</span><span>PCA</span><span>Streamlit</span></div>
+        <a href="https://github.com/maroofrind124-sys/Customer-Segmentation-and-Behavioral-Analytics" target="_blank" style="display:inline-block;margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--teal);">GitHub →</a>
+      </div>
+      <div class="proj">
+        <span class="tag">Regression</span>
+        <h4>Insurance Charges Prediction</h4>
+        <p>Predicts insurance costs from demographic and health features. Found and fixed a data leakage bug in the StandardScaler workflow before finalizing results.</p>
+        <div class="techrow"><span>Linear Regression</span><span>Scikit-learn</span></div>
+        <a href="https://github.com/maroofrind124-sys/Medical-Insurance-Cost-Prediction" target="_blank" style="display:inline-block;margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--teal);">GitHub →</a>
+      </div>
+      <div class="proj">
+        <span class="tag">Regression</span>
+        <h4>Boston Housing Price Prediction</h4>
+        <p>Feature engineering with log transforms and interaction terms, with multicollinearity checked and a scaling bug corrected before the final notebook.</p>
+        <div class="techrow"><span>Linear Regression</span><span>Feature Engineering</span></div>
+        <a href="https://github.com/maroofrind124-sys/House-Pricing-detection" target="_blank" style="display:inline-block;margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--teal);">GitHub →</a>
+      </div>
+      <div class="proj">
+        <span class="tag">Classification</span>
+        <h4>Titanic Survival Prediction</h4>
+        <p>Classic binary classification problem — cleaning, encoding, and modeling passenger data to predict survival outcomes.</p>
+        <div class="techrow"><span>Logistic Regression</span><span>Pandas</span></div>
+        <a href="https://github.com/maroofrind124-sys/My-portfolio/tree/main/ml-projects/project2" target="_blank" style="display:inline-block;margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--teal);">GitHub →</a>
+        
+      </div>
+      <div class="proj">
+        <span class="tag">Deep Learning · Deployed</span>
+        <h4>CIFAR-10 Vision Classifier</h4>
+        <p>ResNet50V2 transfer-learning model fine-tuned on CIFAR-10, reaching 84.91% test accuracy (97.11% top-3) versus a 74.20% from-scratch CNN baseline. Deployed as a live Streamlit app with Grad-CAM interpretability.</p>
+        <div class="techrow"><span>TensorFlow/Keras</span><span>ResNet50V2</span><span>Streamlit</span><span>Grad-CAM</span></div>
+        <a href="https://cifar10-vision-classifier-y3khjw8weyufhgq8cbztqw.streamlit.app/" target="_blank" style="display:inline-block;margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--teal);">Live demo →</a>
+      </div>
+      <div class="proj">
+        <span class="tag">Deep Learning · Completed</span>
+        <h4>PneumoScan — Pneumonia Detection</h4>
+        <p>Full web app for pneumonia detection from chest X-rays — CNN model (88% accuracy, 96% recall) behind a Flask backend with a drag-and-drop UI and scan animation.</p>
+        <div class="techrow"><span>TensorFlow/Keras</span><span>CNN</span><span>Flask</span></div>
+        <a href="https://github.com/maroofrind124-sys/pneumonia-detection-cnn" target="_blank" style="display:inline-block;margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--teal);">GitHub →</a>
+      </div>
+      <div class="proj">
+        <span class="tag">GenAI · Deployed</span>
+        <h4>RAG Knowledge Assistant</h4>
+        <p>Retrieval-augmented generation system with a Streamlit interface — Pinecone for vector search, Groq (Llama 3.3 70B) for generation, sentence-transformers for embeddings, plus OCR fallback for scanned documents.</p>
+        <div class="techrow"><span>Pinecone</span><span>Groq</span><span>Sentence-Transformers</span><span>Streamlit</span></div>
+        <a href="https://rag-pinecone-project-kkycw2zpyenkxlvel4ziqx.streamlit.app/" target="_blank" style="display:inline-block;margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--teal);">Live demo →</a>
+      </div>
+      <div class="proj">
+        <span class="tag">GenAI · Deployed</span>
+        <h4>AI Voice Assistant</h4>
+        <p>Voice-driven assistant with a custom "Analog Console" dark UI — Flask backend, Groq API for responses, Web Speech API for voice I/O, with turn-by-turn transcripts and conversation history.</p>
+        <div class="techrow"><span>Flask</span><span>Groq API</span><span>Web Speech API</span></div>
+        <a href="https://maroofali.pythonanywhere.com" target="_blank" style="display:inline-block;margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--teal);">Live demo →</a>
+      </div>
+      <div class="proj">
+        <span class="tag">NLP · Classification</span>
+        <h4>Fake News Classifier</h4>
+        <p>Text classification model built with SVM to detect fake news, reaching a 99.1% F1 score on the test set.</p>
+        <div class="techrow"><span>Scikit-learn</span><span>SVM</span><span>NLP</span></div>
+        <a href="https://github.com/maroofrind124-sys/fake-news-detection-" target="_blank" style="display:inline-block;margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--teal);">GitHub →</a>
+      </div>
+      <div class="proj">
+        <span class="tag">EDA · Analysis</span>
+        <h4>Social Media Impact on Teen Mental Health</h4>
+        <p>Analyzed a dataset of 1,000+ teens, engineering an age-group feature and building 8 visualization types to study predictors of depression.</p>
+        <div class="techrow"><span>Pandas</span><span>NumPy</span><span>Seaborn</span></div>
+        <a href="https://github.com/maroofrind124-sys/teen-mental-health-analysis" target="_blank" style="display:inline-block;margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--teal);">GitHub →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-panel">
+      <h2>Let's build something.</h2>
+      <p>Open to data science and AI engineering roles, internships, and collaborations. Reach out on whichever channel works for you.</p>
+      <div class="contact-links">
+        <a href="mailto:maroofrind124@gmail.com" class="btn btn-primary">Email</a>
+        <a href="https://www.linkedin.com/in/maroof-ali-19930b3b4/" target="_blank" class="btn btn-ghost">LinkedIn</a>
+        <a href="https://github.com/maroofrind124-sys" target="_blank" class="btn btn-ghost">GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>Maroof Ali — Built with care, one commit at a time.</footer>
+
+</body>
+</html>
